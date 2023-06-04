@@ -3,8 +3,11 @@ import { glob } from 'glob';
 import { ExecOptions, fromExec } from '@gmjs/exec-observable';
 import { readTextAsync } from '@gmjs/fs-async';
 import { parseProjectJson } from './parse-project-json';
+import { Config } from '../types';
 
-export async function publish(): Promise<void> {
+export async function publish(config: Config): Promise<void> {
+  const { dryRun } = config;
+
   console.log('Publishing...');
 
   const projectJsonContent = await readTextAsync('project.json');
@@ -14,7 +17,15 @@ export async function publish(): Promise<void> {
   const files = await glob([...include]);
 
   await exec('cp', ['-R', ...files, publishDir]);
-  await exec('npm', ['publish', '--access', 'public'], { cwd: publishDir });
+
+  const npmArgs: readonly string[] = [
+    'publish',
+    '--access',
+    'public',
+    ...(dryRun ? ['--dry-run'] : []),
+  ];
+
+  await exec('npm', npmArgs, { cwd: publishDir });
 }
 
 async function exec(

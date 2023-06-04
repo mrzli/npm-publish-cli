@@ -26,15 +26,15 @@ It can be installed locally, and added to an npm script, for example like this:
 
 ```
 Usage
-  $ npmpub
+  $ npmpub <input>
 
 Options
-  No options.
+  --dry-run   Dry run (fake publish).
 
 Examples
-  $ npmpub
+  $ jsgen --dry-run
 ```
 
 ## Configuration
 
-No configuration.
+Just the options specified in the usage above.
