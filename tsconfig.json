@@ -1,0 +1,9 @@
+{
+  "extends": "@gmjs/tsconfig",
+  "compilerOptions": {
+    "strict": true,
+    "rootDir": ".",
+    "outDir": "./dist"
+  },
+  "include": ["jest.config.ts", "src/**/*.ts"]
+}
