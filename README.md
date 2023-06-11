@@ -12,13 +12,9 @@ It can be installed locally, and added to an npm script, for example like this:
 
 ```json
 {
-  // ...
   "scripts": {
-    // ...
     "pub": "npmpub"
-    // ...
   }
-  // ...
 }
 ```
 
@@ -32,7 +28,7 @@ Options
   --dry-run   Dry run (fake publish).
 
 Examples
-  $ jsgen --dry-run
+  $ npmpub --dry-run
 ```
 
 ## Configuration
