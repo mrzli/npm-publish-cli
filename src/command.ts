@@ -1,37 +1,31 @@
 import { join } from 'node:path';
-import { cli } from '@gmjs/cli-wrapper';
+import { Command } from 'commander';
 import { readPackageJsonSync } from '@gmjs/package-json';
 import { publish } from './impl';
 import { Config } from './types';
 
 export async function run(): Promise<void> {
-  const result = cli(
-    `
-Usage
-  $ npmpub <input>
+  const program = new Command();
+  program
+    .name('npmpub')
+    .description('Publish npm package.')
+    .version(readPackageJsonSync(join(__dirname, '..')).version ?? '');
 
-Options
-  --dry-run   Dry run (fake publish).
+  program
+    .command('npmpub')
+    .description('Publish npm package.')
+    .option('--dry-run', 'Dry run (fake publish).')
+    .action(npmpub);
 
-Examples
-  $ jsgen --dry-run
-`,
-    {
-      meta: {
-        version: readPackageJsonSync(join(__dirname, '..')).version ?? '',
-      },
-      options: {
-        dryRun: {
-          type: 'boolean',
-          required: false,
-        },
-      },
-    }
-  );
+  await program.parseAsync(process.argv);
+}
 
-  const dryRun = result.options['dryRun']?.value ? true : false;
+async function npmpub(
+  options: Readonly<Record<string, boolean | undefined>>,
+  _command: Command
+): Promise<void> {
   const config: Config = {
-    dryRun,
+    dryRun: options['dryRun'] ?? false,
   };
 
   await publish(config);

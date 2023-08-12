@@ -1,7 +1,8 @@
+import { join } from 'node:path';
 import { lastValueFrom, tap } from 'rxjs';
 import { glob } from 'glob';
+import fs from 'fs-extra';
 import { ExecOptions, fromExec } from '@gmjs/exec-observable';
-import { readTextAsync } from '@gmjs/fs-async';
 import { parseProjectJson } from './parse-project-json';
 import { Config } from '../types';
 
@@ -10,13 +11,14 @@ export async function publish(config: Config): Promise<void> {
 
   console.log('Publishing...');
 
-  const projectJsonContent = await readTextAsync('project.json');
+  const projectJsonContent = await fs.readFile('project.json', 'utf8');
   const projectJson = parseProjectJson(projectJsonContent);
 
   const { publishDir, include } = projectJson.publish;
-  const files = await glob([...include]);
+  await fs.ensureDir(publishDir);
 
-  await exec('cp', ['-R', ...files, publishDir]);
+  const files: readonly string[] = await glob([...include]);
+  await Promise.all(files.map((file) => fs.copy(file, join(publishDir, file))));
 
   const npmArgs: readonly string[] = [
     'publish',
@@ -25,7 +27,11 @@ export async function publish(config: Config): Promise<void> {
     ...(dryRun ? ['--dry-run'] : []),
   ];
 
-  await exec('npm', npmArgs, { cwd: publishDir });
+  await exec(isWindows() ? 'npm.cmd' : 'npm', npmArgs, { cwd: publishDir });
+}
+
+function isWindows(): boolean {
+  return process.platform === 'win32';
 }
 
 async function exec(

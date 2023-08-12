@@ -1,17 +1,28 @@
+const { join } = require('node:path');
 const { lastValueFrom, tap } = require('rxjs');
 const { glob } = require('glob');
+const fs = require('fs-extra');
 const { fromExec } = require('@gmjs/exec-observable');
-const { readTextAsync } = require('@gmjs/fs-async');
 
 async function run() {
   console.log('Publishing...');
-  const projectJsonContent = await readTextAsync('project.json');
+
+  const projectJsonContent = await fs.readFile('project.json', 'utf8');
   const projectJson = JSON.parse(projectJsonContent);
-  // validate projectJson
+
   const { publishDir, include } = projectJson.publish;
-  const files = await glob(include);
-  await exec('cp', ['-R', ...files, publishDir]);
-  await exec('npm', ['publish', '--access', 'public'], { cwd: publishDir });
+  await fs.ensureDir(publishDir);
+
+  const files = await glob([...include]);
+  await Promise.all(files.map((file) => fs.copy(file, join(publishDir, file))));
+
+  const npmArgs = ['publish', '--access', 'public'];
+
+  await exec(isWindows() ? 'npm.cmd' : 'npm', npmArgs, { cwd: publishDir });
+}
+
+function isWindows() {
+  return process.platform === 'win32';
 }
 
 async function exec(cmd, args, options) {
