@@ -4,6 +4,12 @@ All notable changes to the "npm-publish-cli" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.4] - 2023-08-13
+
+### Changed
+
+- Change so that publish is executed as a main command, not a subcommand.
+
 ## [0.0.3] - 2023-08-13
 
 ### Fixed

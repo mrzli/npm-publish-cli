@@ -9,11 +9,7 @@ export async function run(): Promise<void> {
   program
     .name('npmpub')
     .description('Publish npm package.')
-    .version(readPackageJsonSync(join(__dirname, '..')).version ?? '');
-
-  program
-    .command('npmpub')
-    .description('Publish npm package.')
+    .version(readPackageJsonSync(join(__dirname, '..')).version ?? '')
     .option('--dry-run', 'Dry run (fake publish).')
     .action(npmpub);
 
