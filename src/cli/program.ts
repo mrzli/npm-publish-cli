@@ -7,7 +7,7 @@ export function createProgram(): Command {
   program
     .name('npmpub')
     .description('Package publisher.')
-    .version(readPackageJsonSync(join(__dirname, '../..')).version ?? '')
+    .version(readPackageJsonSync(join(__dirname, '../..')).version ?? '');
 
   return program;
 }
