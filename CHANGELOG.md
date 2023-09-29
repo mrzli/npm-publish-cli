@@ -13,6 +13,10 @@ All notable changes to the "npm-publish-cli" will be documented in this file.
 - Update development configurations.
 - Use AJV for validating `project.json` files.
 
+### Added
+
+- Add command for packaging project, separated from publishing, but a prerequisite for it. Invoked using `npmpub package` or `npmpub a`.
+
 ## [0.0.4] - 2023-08-13
 
 ### Changed

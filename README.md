@@ -13,12 +13,26 @@ It can be installed locally, and added to an npm script, for example like this:
 ```json
 {
   "scripts": {
+    "pack": "npmpub package",
     "pub": "npmpub publish"
   }
 }
 ```
 
 ## Usage
+
+### Package
+
+This is a prerequisite for publishing.
+
+```
+Usage: npmpub package|a [options]
+
+Package project.
+
+Options:
+  -h, --help  display help for command
+```
 
 ### Publish
 
