@@ -34,8 +34,8 @@ async function exec(cmd, args, options) {
         } else if (event.kind === 'data-stderr') {
           console.error(event.data);
         }
-      })
-    )
+      }),
+    ),
   );
 }
 

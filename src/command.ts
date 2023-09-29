@@ -18,7 +18,7 @@ export async function run(): Promise<void> {
 
 async function npmpub(
   options: Readonly<Record<string, boolean | undefined>>,
-  _command: Command
+  _command: Command,
 ): Promise<void> {
   const config: Config = {
     dryRun: options['dryRun'] ?? false,

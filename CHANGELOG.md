@@ -4,6 +4,14 @@ All notable changes to the "npm-publish-cli" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.5] - 2023-09-29
+
+### Changed
+
+- Update packages to latest versions.
+- Update development configurations.
+- Use AJV for validating `project.json` files.
+
 ## [0.0.4] - 2023-08-13
 
 ### Changed

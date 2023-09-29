@@ -37,7 +37,7 @@ function isWindows(): boolean {
 async function exec(
   cmd: string,
   args?: readonly string[],
-  options?: ExecOptions
+  options?: ExecOptions,
 ): Promise<void> {
   await lastValueFrom(
     fromExec(cmd, args, options).pipe(
@@ -47,7 +47,7 @@ async function exec(
         } else if (event.kind === 'data-stderr') {
           console.error(event.data);
         }
-      })
-    )
+      }),
+    ),
   );
 }
