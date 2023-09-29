@@ -8,6 +8,7 @@ All notable changes to the "npm-publish-cli" will be documented in this file.
 
 ### Changed
 
+- Publishing is now done using a subcommand `npmpub publish` or `npmpub p` instead of just invoking `npmpub`.
 - Update packages to latest versions.
 - Update development configurations.
 - Use AJV for validating `project.json` files.

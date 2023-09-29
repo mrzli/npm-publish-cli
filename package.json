@@ -25,7 +25,7 @@
     "npmpub": "src/index.js"
   },
   "scripts": {
-    "start:dev": "ts-node src/index.ts",
+    "dev": "ts-node src/run.ts",
     "lint": "eslint --fix . && prettier --write .",
     "lint:nofix": "eslint . && prettier .",
     "test-only": "jest --passWithNoTests",

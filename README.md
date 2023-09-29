@@ -13,22 +13,23 @@ It can be installed locally, and added to an npm script, for example like this:
 ```json
 {
   "scripts": {
-    "pub": "npmpub"
+    "pub": "npmpub publish"
   }
 }
 ```
 
 ## Usage
 
+### Publish
+
 ```
-Usage
-  $ npmpub <input>
+Usage: npmpub publish|p [options]
 
-Options
+Publish npm package.
+
+Options:
   --dry-run   Dry run (fake publish).
-
-Examples
-  $ npmpub --dry-run
+  -h, --help  display help for command
 ```
 
 ## Configuration

@@ -1,10 +1,33 @@
 import { join } from 'node:path';
+import { Command } from 'commander';
 import { lastValueFrom, tap } from 'rxjs';
 import { glob } from 'glob';
 import fs from 'fs-extra';
 import { ExecOptions, fromExec } from '@gmjs/exec-observable';
-import { parseProjectJson } from './parse-project-json';
+import { parseProjectJson } from '../util/parse-project-json';
 import { Config } from '../types';
+
+type OptionValue = boolean;
+type Options = Readonly<Record<string, OptionValue | undefined>>;
+
+export function addCommandPublish(program: Command): Command {
+  program
+    .command('publish')
+    .alias('p')
+    .description('Publish npm package.')
+    .option('--dry-run', 'Dry run (fake publish).')
+    .action(action);
+
+  return program;
+}
+
+async function action(options: Options, _command: Command): Promise<void> {
+  const config: Config = {
+    dryRun: options['dryRun'] ?? false,
+  };
+
+  await publish(config);
+}
 
 export async function publish(config: Config): Promise<void> {
   const { dryRun } = config;
