@@ -13,8 +13,8 @@ It can be installed locally, and added to an npm script, for example like this:
 ```json
 {
   "scripts": {
-    "pack": "npmpub package",
-    "pub": "npmpub publish"
+    "pack": "npmpub pack",
+    "pub": "npmpub pub"
   }
 }
 ```
@@ -26,7 +26,7 @@ It can be installed locally, and added to an npm script, for example like this:
 This is a prerequisite for publishing.
 
 ```
-Usage: npmpub package|a [options]
+Usage: npmpub pack|a [options]
 
 Package project.
 
@@ -37,7 +37,7 @@ Options:
 ### Publish
 
 ```
-Usage: npmpub publish|p [options]
+Usage: npmpub pub|p [options]
 
 Publish npm package.
 

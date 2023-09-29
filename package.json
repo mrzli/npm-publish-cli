@@ -1,6 +1,6 @@
 {
   "name": "@gmjs/npm-publish-cli",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "npm-publish-cli",
   "author": {
     "name": "Goran Mržljak",

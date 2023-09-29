@@ -9,7 +9,7 @@ type Options = Readonly<Record<string, OptionValue | undefined>>;
 
 export function addCommandPackage(program: Command): Command {
   program
-    .command('package')
+    .command('pack')
     .alias('a')
     .description('Package project.')
     .action(action);

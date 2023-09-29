@@ -10,7 +10,7 @@ type Options = Readonly<Record<string, OptionValue | undefined>>;
 
 export function addCommandPublish(program: Command): Command {
   program
-    .command('publish')
+    .command('pub')
     .alias('p')
     .description('Publish npm package.')
     .option('--dry-run', 'Dry run (fake publish).')

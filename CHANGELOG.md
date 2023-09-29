@@ -4,7 +4,13 @@ All notable changes to the "npm-publish-cli" will be documented in this file.
 
 ## [Unreleased]
 
-## [0.0.5] - 2023-09-29
+## [0.0.7] - 2023-09-29
+
+### Changed
+
+- Remame subcommands `package` and `publish` to `pack` and `pub` respectively.
+
+## [0.0.6] - 2023-09-29
 
 ### Changed
 
