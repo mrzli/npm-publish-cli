@@ -1,6 +1,6 @@
 {
   "name": "@gmjs/npm-publish-cli",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "npm-publish-cli",
   "author": {
     "name": "Goran Mržljak",
@@ -37,7 +37,8 @@
   },
   "dependencies": {
     "@gmjs/exec-observable": "^0.0.2",
-    "@gmjs/package-json": "^0.0.1",
+    "@gmjs/fs-async": "^0.0.5",
+    "@gmjs/package-json": "^0.0.2",
     "ajv": "^8.12.0",
     "commander": "^11.0.0",
     "fs-extra": "^11.1.1",

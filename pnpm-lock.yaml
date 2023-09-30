@@ -8,9 +8,12 @@ dependencies:
   '@gmjs/exec-observable':
     specifier: ^0.0.2
     version: 0.0.2
+  '@gmjs/fs-async':
+    specifier: ^0.0.5
+    version: 0.0.5
   '@gmjs/package-json':
-    specifier: ^0.0.1
-    version: 0.0.1
+    specifier: ^0.0.2
+    version: 0.0.2
   ajv:
     specifier: ^8.12.0
     version: 8.12.0
@@ -29,9 +32,6 @@ dependencies:
   tslib:
     specifier: ^2.6.2
     version: 2.6.2
-  zod:
-    specifier: ^3.22.2
-    version: 3.22.2
 
 devDependencies:
   '@gmjs/eslint-config':
@@ -673,14 +673,14 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@gmjs/fs-async@0.0.4:
+  /@gmjs/fs-async@0.0.5:
     resolution:
       {
-        integrity: sha512-+jr2+BU2FZlqVYY1fQ/H/zVnzYSvCJ8tBd9yMjF2zcVjOGpG0MUGDwRay1w+9Oa+6d+p/Sril6hG8bIEFxgfJQ==,
+        integrity: sha512-ZxvevCqxQV7QoYKklVTvmIIi2mG2ji1RViRAy/zxf4hDawTkhHf5trNeRkjjEHr15b9cOP2h3COnlcaCHwqPJg==,
       }
     engines: { node: '>=16.0.0' }
     dependencies:
-      '@gmjs/fs-shared': 0.0.2
+      '@gmjs/fs-shared': 0.0.3
       fs-extra: 11.1.1
       klaw: 4.1.0
       tslib: 2.6.2
@@ -697,14 +697,25 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@gmjs/fs-sync@0.0.2:
+  /@gmjs/fs-shared@0.0.3:
     resolution:
       {
-        integrity: sha512-eUwDiMOOqtT2dpegngFiPluaNCC1EpO2qSo4gsB4N/Y69E40NG95c2SlqbA6Ck0RCPM+5MloPSie/hoJjdj0hg==,
+        integrity: sha512-FP4dfe7Sr7WexkgtyWjQ/5+gXp4oIA0c8DF6mM4upB3AghSeg/PoU9TWqaYO4n7y8c4qoRLCoE6Gp7dvpj7JBA==,
       }
     engines: { node: '>=16.0.0' }
     dependencies:
-      '@gmjs/fs-shared': 0.0.2
+      klaw: 4.1.0
+      tslib: 2.6.2
+    dev: false
+
+  /@gmjs/fs-sync@0.0.3:
+    resolution:
+      {
+        integrity: sha512-ddkBi8VvKuqVggHL4acQpz0jjf4NkB0HXHwESe+cXLUkXPtRvLYYL/SCmDWcGDuOj+9h4YoRJj+tGEc8JOhQJQ==,
+      }
+    engines: { node: '>=16.0.0' }
+    dependencies:
+      '@gmjs/fs-shared': 0.0.3
       fs-extra: 11.1.1
       klaw-sync: 6.0.0
       tslib: 2.6.2
@@ -720,15 +731,15 @@ packages:
       tslib: 2.6.2
     dev: true
 
-  /@gmjs/package-json@0.0.1:
+  /@gmjs/package-json@0.0.2:
     resolution:
       {
-        integrity: sha512-pgrIQpvT/9OOUUMPBwXc60kV0br6L8TPF12fao5XnceEriuNcGsq3XwwZbBMEW38woltCHTz02+qkfllLa5lXw==,
+        integrity: sha512-HD1K8sxjzQSvDJNhfX+K7cSBrMneHWdnjUVH97dWS7/kTXMkBcwIO2l6y7EM/os2IEphq04AJSkmAqH0cCVRHg==,
       }
-    engines: { node: '>=16.0.0' }
+    engines: { node: '>=18.17.0' }
     dependencies:
-      '@gmjs/fs-async': 0.0.4
-      '@gmjs/fs-sync': 0.0.2
+      '@gmjs/fs-async': 0.0.5
+      '@gmjs/fs-sync': 0.0.3
       tslib: 2.6.2
     dev: false
 
@@ -6122,10 +6133,3 @@ packages:
       }
     engines: { node: '>=10' }
     dev: true
-
-  /zod@3.22.2:
-    resolution:
-      {
-        integrity: sha512-wvWkphh5WQsJbVk1tbx1l1Ly4yg+XecD+Mq280uBGt9wa5BKSWf4Mhp6GmrkPixhMxmabYY7RbzlwVP32pbGCg==,
-      }
-    dev: false

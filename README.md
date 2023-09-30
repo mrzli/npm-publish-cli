@@ -46,6 +46,20 @@ Options:
   -h, --help  display help for command
 ```
 
+### Update Version
+
+```
+Usage: npmpub update-version|u [options]
+
+Update version.
+
+Options:
+  -m, --major  Update major version.
+  -n, --minor  Update minor version.
+  -p, --patch  Update patch version.
+  -h, --help   display help for command
+```
+
 ## Configuration
 
 Just the options specified in the usage above.
