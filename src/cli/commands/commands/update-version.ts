@@ -56,7 +56,7 @@ async function updateVersion(config: Config): Promise<void> {
 
   const cwd = process.cwd();
 
-  const packageJson = await readPackageJsonAsync(join(cwd, 'package.json'));
+  const packageJson = await readPackageJsonAsync(cwd);
 
   const version = parseToVersionObjectOrThrow(packageJson.version);
   const newVersion = changeVersionObject(version, versionChange);

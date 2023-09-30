@@ -4,6 +4,12 @@ All notable changes to the "npm-publish-cli" will be documented in this file.
 
 ## [Unreleased]
 
+## [0.0.9] - 2023-09-30
+
+### Fixed
+
+- Fix `package.json` path for `update-version` command.
+
 ## [0.0.8] - 2023-09-30
 
 ### Add
